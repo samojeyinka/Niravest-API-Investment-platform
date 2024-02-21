@@ -48,4 +48,6 @@ class PackagesController < ApplicationController
     def package_params
       params.require(:package).permit(:name, :duration, :daily_profits, :total_profits, :price, :active)
     end
+
+   
 end
