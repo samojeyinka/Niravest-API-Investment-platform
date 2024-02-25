@@ -17,7 +17,12 @@ Rails.application.routes.draw do
   get '/users/:user_id/packages', to: 'packages#user_packages', as: 'user_packages'
   get '/users/:user_id/packages/:package_id', to: 'packages#user_packages_package', as: 'user_packages_package'
   patch '/users/:user_id/packages/:package_id/edit', to: 'packages#user_packages_package_edit', as: 'user_packages_package_edit'
- 
+  patch '/packages/:id/activate', to: 'packages#activate_package', as: 'activate_package'
+
+  #List of all packages wiithoiut authentiaction
+
+  get '/plans', to: 'plans#packages', as: 'packages_lists_packages'
+
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

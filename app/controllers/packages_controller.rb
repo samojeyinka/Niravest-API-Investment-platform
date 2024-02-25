@@ -67,7 +67,15 @@ class PackagesController < ApplicationController
     end
   end
 
-
+  def activate_package
+    @package = Package.find(params[:id])
+    if @package.update(active: true)
+      render json: @package
+    else
+      render json: @package.errors, status: :unprocessable_entity
+    end
+  end
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.
