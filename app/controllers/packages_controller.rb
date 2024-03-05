@@ -67,6 +67,18 @@ class PackagesController < ApplicationController
     end
   end
 
+  def add_package
+    user = User.find(params[:user_id])
+    package = Package.find(params[:package_id])
+  
+    if user.packages << package
+      render json: package, status: :created
+    else
+      render json: { errors: 'Failed to associate package with user' }, status: :unprocessable_entity
+    end
+  end
+  
+
   def activate_package
     @package = Package.find(params[:id])
     if @package.update(active: true)

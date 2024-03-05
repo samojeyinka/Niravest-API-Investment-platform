@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
 
   get '/users/:user_id/packages/active', to: 'packages#active_packages', as: 'user_active_packages'
+  post '/users/:user_id/packages', to: 'packages#add_package', as: 'add_user_package'
   get '/users/:user_id/packages', to: 'packages#user_packages', as: 'user_packages'
   get '/users/:user_id/packages/:package_id', to: 'packages#user_packages_package', as: 'user_packages_package'
   patch '/users/:user_id/packages/:package_id/edit', to: 'packages#user_packages_package_edit', as: 'user_packages_package_edit'
