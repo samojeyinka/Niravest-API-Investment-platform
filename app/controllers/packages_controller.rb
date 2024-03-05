@@ -77,6 +77,17 @@ class PackagesController < ApplicationController
       render json: { errors: 'Failed to associate package with user' }, status: :unprocessable_entity
     end
   end
+
+  def remove_package
+    user = User.find(params[:user_id])
+    package = Package.find(params[:package_id])
+
+    if user.packages.delete(package)
+      render json: { message:'Successfully removed package'}
+    else
+      render json: { errors: 'Failed to remove package' }, status: :unprocessable_entity
+  end
+end
   
 
   def activate_package
