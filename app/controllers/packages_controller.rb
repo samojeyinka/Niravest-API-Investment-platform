@@ -60,7 +60,7 @@ class PackagesController < ApplicationController
   def user_packages_package_edit
     user = User.find(params[:user_id])
     package = user.packages.find(params[:package_id])  
-    if package.update(package_params)
+    if package.update(active: true)
       render json: package
     else
       render json: package.errors, status: :unprocessable_entity

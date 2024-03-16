@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   resources :users
   resources :packages
 
-
   get '/users/:user_id/packages/active', to: 'packages#active_packages', as: 'user_active_packages'
   post '/users/:user_id/packages', to: 'packages#add_package', as: 'add_user_package'
   delete '/users/:user_id/packages/:package_id', to: 'packages#remove_package', as: 'remove_user_package'
