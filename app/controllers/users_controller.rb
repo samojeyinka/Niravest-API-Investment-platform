@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     def index
+        # @users = User.order("RANDOM()")
         @users = User.all
         render json: @users
     end
